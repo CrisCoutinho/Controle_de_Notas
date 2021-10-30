@@ -8,7 +8,7 @@ def menu_principal():
     print(66*"="+"\n")
     print("  1 - Listar alunos")
     print("  2 - Matricular aluno")
-    print("  3 - Buscar Aluno")  # .......................................<< New change in console'text interface (Adding "3 - Buscar Aluno" option)
+    print("  3 - Buscar Aluno")
     print("  0 - Sair do Aplicativo\n")
     return input("  Escolha uma opção: ")
 
@@ -19,8 +19,8 @@ def menu_listagem():
     print(66*"="+"\n")
     print("  1 - Ordenada pelo código")
     print("  2 - Ordenada pelo nome")
-    print("  3 - Ordenada pelo idade")  # .......................................<< New change in console'text interface (Adding "3 - Ordenada pelo idade" option)
-    print("  4 - Ordenada pelo média")  # .......................................<< New change in console'text interface (Adding "4 - Ordenada pelo média" option)
+    print("  3 - Ordenada pelo idade")
+    print("  4 - Ordenada pelo média")
     print("  0 - Voltar ao menu principal\n")
     return input("  Escolha uma opção: ")
 
@@ -31,7 +31,7 @@ def media(ap1, ap2):
         a = 0
     if ap2 > 10:
         b = 0
-    return (2 * a + 3 * b) // 5
+    return (2 * a + 3 * b) / 5
 
 def mostre_lista_de_alunos(la):
     print(66*"-")
@@ -57,9 +57,9 @@ def busca_aluno(lis):
         for alu in sorted(lis, key = lambda x : x[1]):
             if alu[1].find(nome) == 0:
                 print("  {:30s}  Código: {:06d}".format(alu[1], alu[0]))
-        print("  ----------------------------------------------")  # .......................................<< New change in console'text interface
+        print("  ----------------------------------------------")
         c = input("  Complemente o nome ou <ENTER> para sair: "+nome)
-        print("  ----------------------------------------------")  # .......................................<< New change in console'text interface
+        print("  ----------------------------------------------")
         if c == "":
             break
         nome = nome + c
@@ -105,6 +105,8 @@ def principal():
                     pickle.dump(lis_alu, file)
                     file.close()
                     print("  Arquivo salvo")
+                print("\n  ** Fim do aplicativo **")
+                time.sleep(3)
             break
         elif op == '1':
             while True:
@@ -112,36 +114,36 @@ def principal():
                 if op2 == '0':
                     break
                 elif op2 == '1':
-                    print(66*"-")  # .........................................................<< New change in console'text interface
+                    print(66*"-")
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELO CÓDIGO".center(66)))
                     mostre_lista_de_alunos(lis_alu)
                 elif op2 == '2':
-                    print(66*"-")  # .........................................................<< New change in console'text interface
+                    print(66*"-")
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELO NOME".center(66)))
                     mostre_lista_de_alunos(sorted(lis_alu, key=lambda nome : nome[1]))
-                elif op2 == '3': # .........................................................<< New change in console'text interface (Adding "3 - Ordenada pelo idade" option)
+                elif op2 == '3':
                     print(66*"-")
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA IDADE".center(66)))
-                    mostre_lista_de_alunos(sorted(lis_alu, key=lambda idade : idade[2])) # .<< New change, adding the logic necessary to the "3 - Ordenada pelo idade" option to work
-                elif op2 == '4': # .........................................................<< New change in console'text interface (Adding "4 - Ordenada pelo média" option)
+                    mostre_lista_de_alunos(sorted(lis_alu, key=lambda idade : idade[2]))
+                elif op2 == '4':
                     print(66*"-")
-                    print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA MÉDIA".center(66))) # .<< New change, adding the logic necessary to the "4 - Ordenada pelo média" option to work
+                    print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA MÉDIA".center(66)))
                     mostre_lista_de_alunos(sorted(lis_alu, key= lambda alu : media(alu[3], alu[4]), reverse=True))
                 else:
-                    print("\n  * ENTRADA INVÁLIDA *\n")  # .........<< New change in console'text interface
+                    print("\n  * ENTRADA INVÁLIDA *\n")
         elif op == '2':
-            print(66*"-")  # .......................................<< New change in console'text interface
+            print(66*"-")
             print("{:s}".format("MATRICULAR ALUNO".center(66)))
-            print(66*"-")  # .......................................<< New change in console'text interface
+            print(66*"-")
             matricula(lis_alu, ult_cod + 1)
             ult_cod += 1
             alterado = True
         elif op == '3':
-            print(66*"-") #  ........................................<< New change in console'text interface
+            print(66*"-")
             print("{:s}".format("BUSCAR ALUNO PELO NOME".center(66)))
-            print(66*"-") #   .......................................<< New change in console'text interface
+            print(66*"-")
             busca_aluno(lis_alu)
         else:
-            print("\n  * ENTRADA INVÁLIDA *\n") #  ..................<< New change in console'text interface
+            print("\n  * ENTRADA INVÁLIDA *\n")
 
 principal()
