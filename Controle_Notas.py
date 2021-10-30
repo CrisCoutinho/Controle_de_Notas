@@ -8,6 +8,7 @@ def menu_principal():
     print(66*"="+"\n")
     print("  1 - Listar alunos")
     print("  2 - Matricular aluno")
+    print("  3 - Buscar Aluno")  # .......................................<< New change in console'text interface (Adding "3 - Buscar Aluno" option)
     print("  0 - Sair do Aplicativo\n")
     return input("  Escolha uma opção: ")
 
@@ -18,6 +19,8 @@ def menu_listagem():
     print(66*"="+"\n")
     print("  1 - Ordenada pelo código")
     print("  2 - Ordenada pelo nome")
+    print("  3 - Ordenada pelo idade")  # .......................................<< New change in console'text interface (Adding "3 - Ordenada pelo idade" option)
+    print("  4 - Ordenada pelo média")  # .......................................<< New change in console'text interface (Adding "4 - Ordenada pelo média" option)
     print("  0 - Voltar ao menu principal\n")
     return input("  Escolha uma opção: ")
 
@@ -54,9 +57,9 @@ def busca_aluno(lis):
         for alu in sorted(lis, key = lambda x : x[1]):
             if alu[1].find(nome) == 0:
                 print("  {:30s}  Código: {:06d}".format(alu[1], alu[0]))
-        print("  ----------------------------------")
+        print("  ----------------------------------------------")  # .......................................<< New change in console'text interface
         c = input("  Complemente o nome ou <ENTER> para sair: "+nome)
-        print("  ----------------------------------")
+        print("  ----------------------------------------------")  # .......................................<< New change in console'text interface
         if c == "":
             break
         nome = nome + c
@@ -109,22 +112,34 @@ def principal():
                 if op2 == '0':
                     break
                 elif op2 == '1':
+                    print(66*"-")  # .........................................................<< New change in console'text interface
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELO CÓDIGO".center(66)))
                     mostre_lista_de_alunos(lis_alu)
                 elif op2 == '2':
+                    print(66*"-")  # .........................................................<< New change in console'text interface
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELO NOME".center(66)))
                     mostre_lista_de_alunos(sorted(lis_alu, key=lambda nome : nome[1]))
+                elif op2 == '3': # .........................................................<< New change in console'text interface (Adding "3 - Ordenada pelo idade" option)
+                    print(66*"-")
+                    print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA IDADE".center(66)))
+                elif op2 == '4': # .........................................................<< New change in console'text interface (Adding "4 - Ordenada pelo média" option)
+                    print(66*"-")
+                    print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA MÉDIA".center(66)))
                 else:
-                    return
+                    print("\n  * ENTRADA INVÁLIDA *\n")  # .........<< New change in console'text interface
         elif op == '2':
+            print(66*"-")  # .......................................<< New change in console'text interface
             print("{:s}".format("MATRICULAR ALUNO".center(66)))
+            print(66*"-")  # .......................................<< New change in console'text interface
             matricula(lis_alu, ult_cod + 1)
             ult_cod += 1
             alterado = True
         elif op == '3':
+            print(66*"-") #  ........................................<< New change in console'text interface
             print("{:s}".format("BUSCAR ALUNO PELO NOME".center(66)))
+            print(66*"-") #   .......................................<< New change in console'text interface
             busca_aluno(lis_alu)
         else:
-            return
+            print("\n  * ENTRADA INVÁLIDA *\n") #  ..................<< New change in console'text interface
 
 principal()
