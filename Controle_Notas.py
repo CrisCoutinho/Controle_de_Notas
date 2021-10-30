@@ -54,9 +54,9 @@ def busca_aluno(lis):
         for alu in sorted(lis, key = lambda x : x[1]):
             if alu[1].find(nome) == 0:
                 print("  {:30s}  Código: {:06d}".format(alu[1], alu[0]))
-        print("  ----------------------------------")
+        print("  ----------------------------------------------")  # .......................................<< New change in console'text interface
         c = input("  Complemente o nome ou <ENTER> para sair: "+nome)
-        print("  ----------------------------------")
+        print("  ----------------------------------------------")  # .......................................<< New change in console'text interface
         if c == "":
             break
         nome = nome + c
@@ -109,22 +109,28 @@ def principal():
                 if op2 == '0':
                     break
                 elif op2 == '1':
+                    print(66*"-")  # .........................................................<< New change in console'text interface
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELO CÓDIGO".center(66)))
                     mostre_lista_de_alunos(lis_alu)
                 elif op2 == '2':
+                    print(66*"-")  # .........................................................<< New change in console'text interface
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELO NOME".center(66)))
                     mostre_lista_de_alunos(sorted(lis_alu, key=lambda nome : nome[1]))
                 else:
-                    return
+                    print("\n  * ENTRADA INVÁLIDA *\n")  # .........<< New change in console'text interface
         elif op == '2':
+            print(66*"-")  # .......................................<< New change in console'text interface
             print("{:s}".format("MATRICULAR ALUNO".center(66)))
+            print(66*"-")  # .......................................<< New change in console'text interface
             matricula(lis_alu, ult_cod + 1)
             ult_cod += 1
             alterado = True
         elif op == '3':
+            print(66*"-") #  ........................................<< New change in console'text interface
             print("{:s}".format("BUSCAR ALUNO PELO NOME".center(66)))
+            print(66*"-") #   .......................................<< New change in console'text interface
             busca_aluno(lis_alu)
         else:
-            return
+            print("\n  * ENTRADA INVÁLIDA *\n") #  ..................<< New change in console'text interface
 
 principal()
