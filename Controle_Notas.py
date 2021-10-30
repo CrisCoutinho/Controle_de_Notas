@@ -8,6 +8,7 @@ def menu_principal():
     print(66*"="+"\n")
     print("  1 - Listar alunos")
     print("  2 - Matricular aluno")
+    print("  3 - Buscar Aluno")  # .......................................<< New change in console'text interface (Adding "3 - Buscar Aluno" option)
     print("  0 - Sair do Aplicativo\n")
     return input("  Escolha uma opção: ")
 
@@ -18,6 +19,7 @@ def menu_listagem():
     print(66*"="+"\n")
     print("  1 - Ordenada pelo código")
     print("  2 - Ordenada pelo nome")
+    print("  3 - Ordenada pelo idade")  # .......................................<< New change in console'text interface (Adding "3 - Ordenada pelo idade" option)
     print("  0 - Voltar ao menu principal\n")
     return input("  Escolha uma opção: ")
 
@@ -116,6 +118,9 @@ def principal():
                     print(66*"-")  # .........................................................<< New change in console'text interface
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELO NOME".center(66)))
                     mostre_lista_de_alunos(sorted(lis_alu, key=lambda nome : nome[1]))
+                elif op2 == '3': # .........................................................<< New change in console'text interface (Adding "3 - Ordenada pelo idade" option)
+                    print(66*"-")
+                    print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA IDADE".center(66)))
                 else:
                     print("\n  * ENTRADA INVÁLIDA *\n")  # .........<< New change in console'text interface
         elif op == '2':
