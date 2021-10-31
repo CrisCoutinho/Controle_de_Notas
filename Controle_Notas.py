@@ -122,9 +122,11 @@ def principal():
                 elif op2 == '3': # .........................................................<< New change in console'text interface (Adding "3 - Ordenada pelo idade" option)
                     print(66*"-")
                     print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA IDADE".center(66)))
+                    mostre_lista_de_alunos(sorted(lis_alu, key=lambda idade : idade[2])) # .<< New change, adding the logic necessary to the "3 - Ordenada pelo idade" option to work
                 elif op2 == '4': # .........................................................<< New change in console'text interface (Adding "4 - Ordenada pelo média" option)
                     print(66*"-")
-                    print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA MÉDIA".center(66)))
+                    print("{:s}".format("LISTA DE ALUNOS ORDENADOS PELA MÉDIA".center(66))) # .<< New change, adding the logic necessary to the "4 - Ordenada pelo média" option to work
+                    mostre_lista_de_alunos(sorted(lis_alu, key= lambda alu : media(alu[3], alu[4]), reverse=True))
                 else:
                     print("\n  * ENTRADA INVÁLIDA *\n")  # .........<< New change in console'text interface
         elif op == '2':
