@@ -1,4 +1,4 @@
-# Controle_de_Notas
+## Controle_de_Notas
 
 *Interface em console de texto simulando a listagem de múltiplas formas de alunos matriculados em um determinado arquivo "massa_teste.py" de uma escola.
 
