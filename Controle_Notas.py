@@ -1,7 +1,8 @@
+
 import time
 import massa_teste
 import pickle
-
+#function for menu_principal
 def menu_principal():
     print("\n"+66*"=")
     print("Controle de Notas".center(66))
@@ -147,3 +148,5 @@ def principal():
             print("\n  * ENTRADA INVÁLIDA *\n")
 
 principal()
+#This program is contributed by CrisCoutinho
+
